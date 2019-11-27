@@ -44,3 +44,33 @@ echo date('Y');
 date_default_timezone_set('Europe/Brussels');
 echo date('d/m/Y H:i:s');
 ?>
+
+<h2>5. Sum</h2>
+
+<?php
+
+function sum($a,$b){
+
+    $sum = (is_numeric($a) and is_numeric($b)) ?  $a + $b : "Error : argument is not a number";
+    return $sum;
+};
+
+echo 'sum(2, d) ==> '.sum(2, d).'<br>';
+echo 'sum(12, 45) ==> '.sum(12, 45).'<br>';
+?>
+
+<h2>6. Generate acronym</h2>
+
+<?php
+
+function generate_acronym($string){
+    $string_to_array = explode(" ", $string);
+    foreach($string_to_array as $key => $word){
+        $string_to_array[$key] = ucfirst(substr($word, 0, 1));
+    }
+    return implode("", $string_to_array);
+};
+
+$acronym = generate_acronym('Fabrique un chapeau, kirikou');
+echo '<p>'.$acronym.'</p>';
+?>
